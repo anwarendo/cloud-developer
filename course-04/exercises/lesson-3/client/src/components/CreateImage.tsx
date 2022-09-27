@@ -49,7 +49,7 @@ export class CreateImage extends React.PureComponent<
       console.log('Created image', uploadInfo)
 
       alert('Image was uploaded!')
-    } catch (e) {
+    } catch (e: any) {
       alert('Could not upload an image: ' + e.message)
     } finally {
       this.setUploadState(UploadState.NoUpload)
