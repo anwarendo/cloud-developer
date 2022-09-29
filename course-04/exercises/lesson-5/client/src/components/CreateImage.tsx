@@ -69,7 +69,7 @@ export class CreateImage extends React.PureComponent<
       await uploadFile(uploadInfo.uploadUrl, this.state.file)
 
       alert('Image was uploaded!')
-    } catch (e) {
+    } catch (e: any) {
       alert('Could not upload an image: ' + e.message)
     } finally {
       this.setUploadState(UploadState.NoUpload)
