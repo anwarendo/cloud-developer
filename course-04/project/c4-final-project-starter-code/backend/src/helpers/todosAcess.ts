@@ -36,3 +36,15 @@ export async function getItem(userId: string) {
   return result
 }  
 
+export async function getItemsPerUser(userId: string) {
+  const result = await docClient.query({
+    TableName: todosTable,
+    KeyConditionExpression: 'userId = :userId',
+    ExpressionAttributeValues: {
+      ':userId': userId
+    },
+    ScanIndexForward: false
+  }).promise()
+
+  return result
+}

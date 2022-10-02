@@ -1,5 +1,5 @@
 // import { TodosAccess } from './todosAcess'
-import { createItem, getItem} from './todosAcess'
+import { createItem, getItem, getItemsPerUser} from './todosAcess'
 // import { AttachmentUtils } from './attachmentUtils';
 import { TodoItem } from '../models/TodoItem'
 import { CreateTodoRequest } from '../requests/CreateTodoRequest'
@@ -34,3 +34,9 @@ export async function createTodo(userId: string, todoId: string, event: any) {
   return newItem
 }
 
+export async function getTodosForUser(userId: string) {
+  
+  const result = await getItemsPerUser(userId)
+
+  return result.Items
+}
